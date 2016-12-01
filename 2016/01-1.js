@@ -31,7 +31,7 @@ const changeMap = {
 }
 
 let result = pattern.split(", ").reduce((a,b) => {
-    const [turn, count] = b.split("");
+    const [turn, count] = [b[0], b.slice(1)];
     currentDir = dirMap[currentDir][turn];
     return [a[0] + changeMap[currentDir][0] * +count, a[1] + changeMap[currentDir][1] * +count];
 }, [0,0]);
