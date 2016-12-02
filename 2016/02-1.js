@@ -6,7 +6,7 @@ const pattern = "LLLUDRDLLULDUDLLRLUDURULDURRRRLLURLDLDDDULLDDUDLRDLRDUURRDUUDLL
 let currentPos = [1,1];
 
 const getKey = pos => (pos[0] + 1) + pos[1] * 3;
-const getPos = (current, change) => Math.min(Math.max(0, current + change), 2);
+const getPos = (start, change) => Math.min(Math.max(0, start + change), 2);
 
 const map = {
     "U": [0,-1],
