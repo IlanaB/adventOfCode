@@ -1,5 +1,5 @@
 # advent of code
 
-These are my solutions to Eric Wastl's Advent of Code.
+These are my solutions to Eric Wastl's Advent of Code (http://adventofcode.com/).
 
-I'm so excited for it that I am creating this repo now.
+I wrote these using ES6 and ran the solutions in node.
