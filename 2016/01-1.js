@@ -30,11 +30,21 @@ const changeMap = {
     "W": [-1,0]
 }
 
-let result = pattern.split(", ").reduce((a,b) => {
-    const [turn, count] = [b[0], b.slice(1)];
+const getNextPosition = ( start, directions ) => {
+    const [turn, count] = [step[0], step.slice(1)];
     currentDir = dirMap[currentDir][turn];
-    return [a[0] + changeMap[currentDir][0] * +count, a[1] + changeMap[currentDir][1] * +count];
-}, [0,0]);
 
-console.log(Math.abs(result[0]) + Math.abs(result[1]));
+    let changeX = changeMap[currentDir][0];
+    let changeY = changeMap[currentDir][1];
+
+    let newX = start[0] + changeX * +count;
+    let newY = start[1] + changeY * +count;
+
+    return [newX, newY];
+}
+
+let result = pattern.split(", ").reduce(getNextPosition, [0,0]);
+let totalDistance = Math.abs(result[0]) + Math.abs(result[1]);
+
+console.log(totalDistance);
 
