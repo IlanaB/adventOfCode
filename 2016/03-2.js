@@ -23,9 +23,11 @@ const getSets = data => {
 
     for( let i = 0; i <= iterations; i++) {
         let startRow = i * 3;
-        sets.push(getSides(numberRows, startRow, 0));
-        sets.push(getSides(numberRows, startRow, 1));
-        sets.push(getSides(numberRows, startRow, 2));
+        sets.push(
+            getSides(numberRows, startRow, 0),
+            getSides(numberRows, startRow, 1),
+            getSides(numberRows, startRow, 2)
+        );
     }
     return sets;
 }
