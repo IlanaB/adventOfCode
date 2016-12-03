@@ -37,8 +37,8 @@ const getNextPosition = ( start, directions ) => {
     let changeX = changeMap[currentDir][0];
     let changeY = changeMap[currentDir][1];
 
-    let newX = start[0] + changeX * +count;
-    let newY = start[1] + changeY * +count;
+    let newX = start[0] + changeX * Number(count);
+    let newY = start[1] + changeY * Number(count);
 
     return [newX, newY];
 }
