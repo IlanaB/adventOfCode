@@ -15,10 +15,10 @@ const sortTotals = ( a, b ) => {
     } else if ( a.total < b.total ) {
         return 1;
     } else {
-        if( a > b ) {
-            return -1;
-        } else {
+        if( a.value > b.value ) {
             return 1;
+        } else {
+            return -1;
         }
     }
 }
@@ -59,6 +59,5 @@ fs.readFile('./04.txt', 'utf8', (err, data) => {
   if (err) throw err;
   let lines = data.split("\n");
   let rooms = lines.filter(isRealRoom);
-  // 10142 too low
   console.log(rooms.reduce(addCheckSum, 0));
 });
