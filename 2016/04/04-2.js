@@ -51,13 +51,36 @@ const isRealRoom = room => {
     return (calculatedCheckSum === providedCheckSum);
 }
 
-const addCheckSum = ( total, room ) => {
-    return total + Number(room.match(/\d+/)[0]);
+const rotateChar = ( rotations, val ) => {
+    let rotatedCharCode = val.charCodeAt(0) + rotations;
+    let newCharCode;
+
+    if( rotatedCharCode > 122 ) {
+        let overZ = rotatedCharCode - 123;
+        newCharCode = 97 + ( overZ % 26 );
+    } else {
+        newCharCode = rotatedCharCode;
+    }
+
+    return String.fromCharCode(newCharCode);
 }
 
-fs.readFile('./04.txt', 'utf8', (err, data) => {
+const getCharacter = ( rotations, val ) => {
+    return ( val === "-" ) ? " " : rotateChar(rotations, val);
+}
+
+const decrypt = room => {
+    let rotations = Number(room.match(/\d+/)[0]);
+    let name = room.replace(/-[0-9]+\[[a-z]+\]/, "");
+    let decryptedRoom = name.split("").map(getCharacter.bind(this, rotations));
+    return decryptedRoom.join("");
+}
+
+fs.readFile('./input-q4.txt', 'utf8', (err, data) => {
   if (err) throw err;
   let lines = data.split("\n");
   let rooms = lines.filter(isRealRoom);
-  console.log(rooms.reduce(addCheckSum, 0));
+  for ( const room of rooms ) {
+    console.log(`${decrypt(room)} - ${room.match(/\d+/)[0]}`);
+  }
 });

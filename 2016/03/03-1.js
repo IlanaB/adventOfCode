@@ -9,7 +9,7 @@ const getTriangles = sets => {
     });
 }
 
-fs.readFile('./03.txt', 'utf8', (err, data) => {
+fs.readFile('./input-q3.txt', 'utf8', (err, data) => {
   if (err) throw err;
   let triangles = getTriangles(data.split("\n"));
   console.log(triangles.length);
