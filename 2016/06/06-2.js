@@ -4,10 +4,13 @@ const fs = require('fs');
 const getLetterCounts = ( counts, line ) => {
     for ( const pos in line ) {
         let letter = line[pos];
+
         if( counts[pos] == null ) {
-            counts[pos] = { [letter]: 1 }
+            counts[pos] = { [letter]: 1 };
+
         } else if( counts[pos][letter] == null ) {
             counts[pos][letter] = 1;
+            
         } else {
             counts[pos][letter]++;
         }
