@@ -11,7 +11,6 @@ function solver(input) {
       const columnToCheck = numEndColumn - currentNumberAsString.length + i;
       if (columnToCheck >= 0 && columnToCheck < input[numEndRow].length) {
         columnsToCheck.push(columnToCheck);
-      } else {
       }
     }
 
